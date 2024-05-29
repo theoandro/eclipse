@@ -1,0 +1,47 @@
+[build-system]
+requires = [
+    "setuptools>=66",
+    "setuptools_scm[toml]>=6.2"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "eclipse"
+dynamic = ["version"]
+dependencies = [
+    "behave==1.2.6",
+]
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+build = [
+    "build==1.0.3",
+    "setuptools_scm[toml]>=6.2",
+    "twine==4.0.2",
+]
+dev = [
+    "assertpy==1.1",
+    "black==23.11.0",
+    "pytest==7.4.3",
+    "pytest-cov==4.1.0",
+    "pyspark==3.5.1",
+    "pandas==2.2.2",
+    "awscli==1.32.113",
+    "notebook"
+]
+
+[project.scripts]
+eclipse-refining-task = "refining.tasks.entrypoint:main"
+eclipse-ingestion-task = "ingestion.entrypoint:main"
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-p no:warnings -v"
+testpaths = ["tests"]
+pythonpath = [".", "src"]

@@ -1,0 +1,22 @@
+# virtual python env
+/venv
+
+# local terraform directories
+terraform
+
+# idea cache
+.idea
+
+# build files
+dist
+eclipse.egg-info
+build
+
+# tests reports
+reports
+
+# data
+data/average
+data/ingestion_output
+data/test
+data/refining_output

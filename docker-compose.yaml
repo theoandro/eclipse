@@ -1,0 +1,33 @@
+services:
+
+  ingestion:
+    image: ingestion_job_image
+    container_name: ingestion_job_container
+    environment:
+      AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+      AWS_CONTAINER_URL: $AWS_CONTAINER_URL
+
+  refining-average:
+    image: refining_average_job_image
+    container_name: refining_average_job
+    environment:
+      AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+      AWS_CONTAINER_URL: $AWS_CONTAINER_URL
+
+  refining-top-volume:
+    image: refining_top_volume_job_image
+    container_name: refining_top_volume_job
+    environment:
+      AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+      AWS_CONTAINER_URL: $AWS_CONTAINER_URL
+
+  anomalies-detection:
+    image: anomalies_detection_job_image
+    container_name: anomalies_detection_job
+    environment:
+      AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+      AWS_CONTAINER_URL: $AWS_CONTAINER_URL
